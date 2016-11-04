@@ -36,6 +36,7 @@ if [ $PartSize -gt $PartLimit ];then
 	echo "$PartName $PartSize 超过限制 Limte Size:$PartLimit!请退出!"
 	#sleep 10;
 	#read;
+	echo "error!!!"
 	rm $1.img
 	exit 0;
 else
@@ -44,7 +45,7 @@ fi
 }
 
 if [ "$1" = "app" ] && [ "$2" != "7101_V1_S" ] && [ "$2" != "7102_V2_S" ] && [ "$2" != "7102_V2_S_100" ] && [ "$2" != "7102_V2_S_130" ] && [ "$2" != "7101_V2_S" ] && [ "$2" != "7101_V2_D" ] && [ "$2" != "mis1002" ]\
-&& [ "$2" != "jxh61" ] && [ "$2" != "ar0237" ]  && [ "$2" != "7102S" ] 
+&& [ "$2" != "jxh61" ] && [ "$2" != "ar0237" ]
 then
 	echo "Usage: $0 app 7101_V1_S/7102_V2_S/7102_V2_S_100/7102_V2_S_130/7101_V2_S/7101_V2_D/mis1002/"
 	exit 0;
@@ -97,14 +98,7 @@ then
 		ar0237)
 			echo "Add ar0237 bin"
 			cp $CURRENT/sensors/ar0237.bin $CURRENT/app/etc/sensors
-			;;	
-		7102S)
-			echo "Add sc2135 bin"
-			cp $CURRENT/sensors/sc1135_hw.bin $CURRENT/app/etc/sensors
-			cp $CURRENT/sensors/sc2135_hw.bin $CURRENT/app/etc/sensors
-			cp $CURRENT/sensors/sc1135.bin $CURRENT/app/etc/sensors
-			cp $CURRENT/sensors/sc2135.bin $CURRENT/app/etc/sensors			
-			;;				
+			;;			
 	esac
 fi
 
